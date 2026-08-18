@@ -1,7 +1,9 @@
 <?php
 
-class Inscription
-{
+namespace App\Models\Entity;
+
+class Inscription {
+
     private ?int $id;
     private Eleve $eleve;
     private AnneeScolaire $annee;
@@ -70,5 +72,11 @@ class Inscription
     public function setUtilisateur(Utilisateur $utilisateur): void
     {
         $this->utilisateur = $utilisateur;
+    }
+
+     public static function toEntity(\stdClass $obj): Inscription{
+        
+        $inscription = new Inscription(Eleve::toEntity($obj), Classe::toEntity($obj), Annescolaire::toEntity($obj), Utilisateur::toEntity($obj));
+        return $inscription;
     }
 }

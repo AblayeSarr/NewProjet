@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models\Entity;
+
 class Etablissement {
     private ?int $id;
     private string $nom;
@@ -21,5 +23,9 @@ class Etablissement {
     }
     public function setNom(string $nom): void { 
         $this->nom = $nom;
+    }
+
+    public static function toEntity(\stdClass $obj): Etablissement{
+        return new Etablissement(nom: $obj->nometablissement);
     }
 }

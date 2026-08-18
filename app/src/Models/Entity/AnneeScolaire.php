@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models\Entity;
+
 class AnneeScolaire {
    private ?int $id;
    private string $annee; 

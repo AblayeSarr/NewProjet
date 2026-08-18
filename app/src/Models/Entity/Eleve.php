@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models\Entity;
+
 class Eleve {
     private ?int $id;
     private Responsable $responsable;
@@ -88,6 +90,18 @@ class Eleve {
 
     public function getNomComplet(): string{
         return trim($this->prenom . ' ' . $this->nom);
+    }
+
+    public static function toEntity(\stdClass $obj): self{
+
+        return new self(
+            prenom: $obj->prenom,
+            nom: $obj->nom,
+            numero: $obj->numero,
+            matricule: $obj->matricule,
+            adresse: $obj->adresse,
+            responsable: Responsable::toEntity($obj),
+        );
     }
 }
 

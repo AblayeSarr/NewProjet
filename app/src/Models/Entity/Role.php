@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Models\Entity;
+
 class Role{
-    
+
     private ?int $id;
     private string $role;
 
@@ -29,5 +31,10 @@ class Role{
     public function setRole(string $role): void
     {
         $this->role = $role;
+    }
+
+     public static function toEntity(\stdClass $obj): self{
+    
+        return new self(role: $obj->nomrole);
     }
 }

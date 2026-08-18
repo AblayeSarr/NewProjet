@@ -1,13 +1,15 @@
 <?php
 
+namespace App\Models\Entity;
+
 class Transfert {
-    
+
     private ?int $id;
     private Inscription $inscription;
     private Etablissement $etablissementDestination;
     private Classe $classeDestination;
     private Utilisateur $utilisateur;
-    private DateTimeInterface $dateTransfert;
+    private Date $dateTransfert;
 
     public function __construct(
         ?int $id,
@@ -15,7 +17,7 @@ class Transfert {
         Etablissement $etablissementDestination,
         Classe $classeDestination,
         Utilisateur $utilisateur,
-        DateTimeInterface $dateTransfert
+        Date $dateTransfert
     ) {
         $this->id = $id;
         $this->inscription = $inscription;
@@ -75,12 +77,11 @@ class Transfert {
         $this->utilisateur = $utilisateur;
     }
 
-    public function getDateTransfert(): DateTimeInterface
-    {
+    public function getDateTransfert(): Date {
         return $this->dateTransfert;
     }
 
-    public function setDateTransfert(DateTimeInterface $dateTransfert): void
+    public function setDateTransfert(Date $dateTransfert): void
     {
         $this->dateTransfert = $dateTransfert;
     }

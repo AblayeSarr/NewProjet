@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Models\Entity;
+
 class Utilisateur {
-    
+
     private ?int $id;
     private string $prenom;
     private string $nom;
@@ -83,5 +85,16 @@ class Utilisateur {
     public function setRole(Role $role): void
     {
         $this->role = $role;
+    }
+
+     public static function toEntity(\stdClass $obj): self
+    {
+        return new self(
+            prenom : $obj->prenomutilisateur,
+            nom : $obj->nomutilisateur,
+            login: $obj->login,
+            password: $obj->password,
+            role: Role::toEntity($obj)
+        );
     }
 }

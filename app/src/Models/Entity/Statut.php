@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Models\Entity;
+
 class Statut{
-    
+
     private ?int $id;
     private string $nom;
 

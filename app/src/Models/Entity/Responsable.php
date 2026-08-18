@@ -1,6 +1,9 @@
 <?php
 
-class Responsable{
+namespace App\Models\Entity;
+
+class Responsable {
+
     private ?int $id;
     private string $prenom;
     private string $nom;
@@ -70,4 +73,14 @@ class Responsable{
     {
         $this->adresse = $adresse;
     }
+
+     public static function toEntity(\stdClass $obj): self {
+        return new self(
+            prenom: $obj->prenomresponsable,
+            nom: $obj->nomresponsable,
+            numero: $obj->numerotelephone,
+            addresse: $odj->adresseresponsable,
+        );
+    }
+
 }
