@@ -3,10 +3,10 @@
 class Classe {
 
       private ?int $id;
-      private etablissement $etablissement;
+      private Etablissement $etablissement;
       private string $nom;
 
-      function __construct(?int $id, etablissement $etablissement, string $nom){
+      function __construct(?int $id, Etablissement $etablissement, string $nom){
         $this->id = $id;
         $this->etablissement = $etablissement;
         $this->nom = $nom;
